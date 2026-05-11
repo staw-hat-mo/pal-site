@@ -40,7 +40,6 @@ nav{
     background:rgba(0,0,0,0.75);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
-    z-index:1000;
 }
 
 nav a{
@@ -51,7 +50,7 @@ nav a{
 }
 nav a:hover{color:var(--green); opacity:1;}
 
-/* HERO */
+/* HEADER */
 header{
     height:100vh;
     display:flex;
@@ -63,21 +62,13 @@ header{
 }
 
 header h1{font-size:2.6rem;}
-header p{opacity:0.7; max-width:750px; margin-top:10px;}
+header p{opacity:0.75; max-width:750px; margin-top:10px;}
 
 /* SECTIONS */
 section{
     padding:90px 20px;
     max-width:1000px;
     margin:auto;
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.8s ease;
-}
-
-section.show{
-    opacity:1;
-    transform:translateY(0);
 }
 
 h2{
@@ -93,52 +84,19 @@ h2{
     border-radius:12px;
     padding:22px;
     margin-top:15px;
-    backdrop-filter:blur(10px);
 }
 
-/* BARS */
-.bar{
-    background:#222;
-    height:12px;
-    border-radius:6px;
-    overflow:hidden;
-    margin-top:8px;
+/* IMAGES GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
 }
 
-.fill{
-    height:100%;
-    width:0%;
-    background:var(--green);
-    transition:2s ease;
-}
-
-/* MAP */
-.map{
-    height:250px;
-    background:
-        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1");
-    background-size:cover;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-/* GLOSSARY */
-.term{
-    padding:12px;
-    border:1px solid var(--border);
+img{
+    width:100%;
     border-radius:10px;
-    margin-top:10px;
-    cursor:pointer;
-}
-
-.definition{
-    display:none;
-    opacity:0.8;
-    margin-top:8px;
+    opacity:0.9;
 }
 
 /* FOOTER */
@@ -151,7 +109,7 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-    header h1{font-size:2rem;}
+    .grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -160,103 +118,130 @@ footer{
 
 <nav>
     <a href="#history">History</a>
-    <a href="#data">Data</a>
-    <a href="#map">Map</a>
-    <a href="#terms">Glossary</a>
+    <a href="#crisis">Humanitarian Crisis</a>
+    <a href="#stats">Statistics</a>
+    <a href="#voices">Personal Accounts</a>
+    <a href="#donate">Donate</a>
+    <a href="#news">News</a>
+    <a href="#culture">Inspiration</a>
 </nav>
 
 <header>
     <h1>Understanding the Israel–Palestine Conflict</h1>
-    <p>An interactive educational research project exploring history, data, and global perspectives.</p>
+    <p>An educational research website covering history, humanitarian impact, statistics, and global perspectives.</p>
 </header>
 
 <!-- HISTORY -->
 <section id="history">
-<h2>Historical Overview</h2>
+<h2>Historical Background</h2>
 <div class="card">
-<p>The conflict has developed over more than a century through political, territorial, and historical developments.</p>
-<p>Key moments include the British Mandate period, 1948 Arab–Israeli War, and ongoing regional tensions.</p>
+<p>The Israel–Palestine conflict is a long-standing geopolitical issue rooted in historical, territorial, and national identity claims.</p>
+
+<p>Key historical moments include the end of Ottoman rule, British Mandate (1917–1948), the 1948 Arab–Israeli War (Nakba for Palestinians), and subsequent wars including 1967 and modern Gaza conflicts.</p>
+
+<p>Efforts such as the Oslo Accords attempted peace agreements, but a lasting resolution has not been achieved.</p>
 </div>
 </section>
 
-<!-- DATA -->
-<section id="data">
-<h2>Humanitarian Overview (Visual Data)</h2>
-
+<!-- CRISIS -->
+<section id="crisis">
+<h2>Humanitarian Situation</h2>
 <div class="card">
-<p>Population Affected</p>
-<div class="bar"><div class="fill" data-width="85%"></div></div>
+<p>Humanitarian organizations report severe impacts on civilians, including displacement, infrastructure destruction, and shortages of essential resources such as water, electricity, and medical care.</p>
 
-<p style="margin-top:15px;">Infrastructure Impact</p>
-<div class="bar"><div class="fill" data-width="70%"></div></div>
-
-<p style="margin-top:15px;">Humanitarian Aid Activity</p>
-<div class="bar"><div class="fill" data-width="60%"></div></div>
+<p>According to UN reporting, large portions of Gaza’s population have been displaced multiple times during escalations of conflict.</p>
 </div>
 </section>
 
-<!-- MAP -->
-<section id="map">
-<h2>Regional Context</h2>
-<div class="card map">
-<p>Israel and Palestine are located in the Middle East, a historically significant and complex region.</p>
+<!-- STATISTICS -->
+<section id="stats">
+<h2>Reported Casualty Statistics (Gaza - Conflict Period)</h2>
+<div class="card">
+<p><b>Note:</b> These figures come from humanitarian reporting agencies and are continuously updated.</p>
+
+<p>Estimated total fatalities: ~60,000–70,000+</p>
+<p>Women & children: significant majority of civilian casualties reported in many datasets</p>
+
+<p style="margin-top:10px; opacity:0.7;">
+Sources: UN OCHA, Human Rights Watch, Reuters reporting
+</p>
 </div>
 </section>
 
-<!-- TERMS -->
-<section id="terms">
-<h2>Key Terms (Click to Expand)</h2>
+<!-- PERSONAL VOICES -->
+<section id="voices">
+<h2>Personal Accounts (Reported by Journalism & NGOs)</h2>
+<div class="card">
+<p>Palestinian civilians interviewed by international journalists describe experiences of displacement, loss of homes, and disruption of daily life.</p>
 
-<div class="card term">
-Nakba
-<div class="definition">Refers to the displacement of Palestinians during the 1948 Arab–Israeli war.</div>
+<p>Organizations such as Amnesty International and Human Rights Watch compile verified testimonies from affected families.</p>
+
+<p>These accounts are used to document humanitarian conditions rather than isolated narratives.</p>
+</div>
+</section>
+
+<!-- DONATE -->
+<section id="donate">
+<h2>Donate & Humanitarian Support</h2>
+<div class="card">
+
+<p><a href="https://www.unrwa.org/" target="_blank">UNRWA (UN Palestinian Refugee Agency)</a></p>
+<p><a href="https://www.doctorswithoutborders.org/" target="_blank">Doctors Without Borders</a></p>
+<p><a href="https://www.palestinercs.org/en" target="_blank">Palestinian Red Crescent</a></p>
+<p><a href="https://www.islamic-relief.org/" target="_blank">Islamic Relief</a></p>
+
+</div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+<h2>Reliable News Sources</h2>
+<div class="card">
+
+<p><a href="https://www.bbc.com/news" target="_blank">BBC News</a></p>
+<p><a href="https://www.reuters.com/" target="_blank">Reuters</a></p>
+<p><a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a></p>
+<p><a href="https://www.nytimes.com/" target="_blank">New York Times</a></p>
+
+</div>
+</section>
+
+<!-- CULTURE + ONE PIECE -->
+<section id="culture">
+<h2>Student Inspiration</h2>
+<div class="card">
+<p>This project was inspired by themes of justice and freedom seen in popular culture.</p>
+
+<p>
+In the anime <i>One Piece</i>, the character Monkey D. Luffy fights against oppression and injustice, which influenced the idea of using knowledge and voice to support awareness of global issues.
+</p>
+
+<p style="opacity:0.7;">
+This connection is used as a personal motivation, not as a political comparison.
+</p>
+</div>
+</section>
+
+<!-- IMAGES -->
+<section>
+<h2>Protests & Awareness Imagery</h2>
+<div class="card grid">
+
+<img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a" alt="">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="">
+<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d" alt="">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
+
 </div>
 
-<div class="card term">
-West Bank
-<div class="definition">A Palestinian territory located east of Israel.</div>
-</div>
-
-<div class="card term">
-Gaza Strip
-<div class="definition">A densely populated coastal region facing humanitarian challenges.</div>
-</div>
-
+<p style="margin-top:10px; opacity:0.6;">
+Images represent general protest movements and civic demonstrations globally.
+</p>
 </section>
 
 <footer>
-Educational Interactive Project • GitHub Pages Ready
+Educational Research Website • Built for Academic Learning
 </footer>
-
-<script>
-// scroll reveal
-const sections=document.querySelectorAll("section");
-
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting){
-            e.target.classList.add("show");
-
-            // animate bars
-            document.querySelectorAll(".fill").forEach(bar=>{
-                bar.style.width=bar.getAttribute("data-width");
-            });
-        }
-    });
-},{threshold:0.2});
-
-sections.forEach(s=>observer.observe(s));
-
-// glossary toggle
-document.querySelectorAll(".term").forEach(t=>{
-    t.addEventListener("click",()=>{
-        const d=t.querySelector(".definition");
-        d.style.display=d.style.display==="block"?"none":"block";
-    });
-});
-</script>
 
 </body>
 </html>
-
-
