@@ -3,22 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Understanding Palestine</title>
+<title>Understanding the Israel–Palestine Conflict</title>
 
 <style>
 :root{
     --green:#2e7d32;
-    --bg:#0b0b0b;
+    --red:#c62828;
+    --black:#0b0b0b;
+    --white:#f5f5f5;
     --card: rgba(255,255,255,0.06);
-    --text:#f5f5f5;
-    --border: rgba(255,255,255,0.1);
-}
-
-body.light{
-    --bg:#f5f5f5;
-    --text:#111;
-    --card: rgba(0,0,0,0.05);
-    --border: rgba(0,0,0,0.1);
+    --border: rgba(255,255,255,0.12);
 }
 
 *{
@@ -30,59 +24,37 @@ body.light{
 }
 
 body{
-    background:var(--bg);
-    color:var(--text);
-    transition:0.4s ease;
+    background:var(--black);
+    color:var(--white);
 }
 
-/* progress bar */
-#progress{
-    position:fixed;
-    top:0;
-    left:0;
-    height:4px;
-    width:0%;
-    background:var(--green);
-    z-index:2000;
-}
-
-/* nav */
+/* NAV */
 nav{
     position:fixed;
     top:0;
     width:100%;
     display:flex;
     justify-content:center;
-    gap:16px;
+    gap:18px;
     padding:14px;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.7);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
-    z-index:1000;
 }
 
 nav a{
-    color:var(--text);
+    color:var(--white);
     text-decoration:none;
     font-size:0.9rem;
     opacity:0.7;
 }
-nav a:hover{color:var(--green); opacity:1;}
 
-#modeToggle{
-    position:fixed;
-    right:15px;
-    top:10px;
-    z-index:3000;
-    padding:6px 10px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    background:var(--green);
-    color:white;
+nav a:hover{
+    color:var(--green);
+    opacity:1;
 }
 
-/* HERO CINEMATIC */
+/* HERO */
 header{
     height:100vh;
     display:flex;
@@ -90,107 +62,63 @@ header{
     justify-content:center;
     align-items:center;
     text-align:center;
-    position:relative;
-    overflow:hidden;
     padding:20px;
-}
-
-header::before{
-    content:"";
-    position:absolute;
-    inset:0;
     background:
-        linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-        url("https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28");
-    background-size:cover;
-    background-position:center;
-    filter:grayscale(0.2);
-    z-index:-1;
+        linear-gradient(120deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)),
+        linear-gradient(90deg, var(--black), #111);
 }
 
 header h1{
-    font-size:3rem;
+    font-size:2.7rem;
+    color:var(--white);
 }
 
 header p{
-    max-width:700px;
-    opacity:0.8;
+    max-width:750px;
+    opacity:0.75;
     margin-top:10px;
 }
 
-/* sections */
+/* SECTIONS */
 section{
-    padding:100px 20px;
-    max-width:1000px;
+    padding:90px 20px;
+    max-width:950px;
     margin:auto;
 }
 
-h2{color:var(--green); margin-bottom:15px;}
+h2{
+    color:var(--green);
+    margin-bottom:15px;
+    border-left:4px solid var(--red);
+    padding-left:10px;
+}
 
 .card{
     background:var(--card);
     border:1px solid var(--border);
     border-radius:12px;
-    padding:25px;
+    padding:22px;
     margin-top:15px;
     backdrop-filter:blur(10px);
 }
 
-/* stats */
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    text-align:center;
-}
-
-.stat h3{
-    font-size:2rem;
+/* LINKS */
+a{
     color:var(--green);
+    text-decoration:none;
 }
 
-/* map section */
-.map-box{
-    height:250px;
-    background:
-        linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-        url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1");
-    background-size:cover;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+a:hover{
+    color:var(--red);
 }
 
-/* faq */
-.faq{
-    cursor:pointer;
-    padding:15px;
-    border:1px solid var(--border);
-    margin-top:10px;
-    border-radius:10px;
+/* EMPHASIS */
+.highlight{
+    color:var(--red);
+    font-weight:bold;
 }
 
-.answer{
-    display:none;
-    padding-top:10px;
-    opacity:0.8;
-}
-
-/* animation */
-.hidden{
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.8s ease;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* footer */
+/* FOOTER */
 footer{
     text-align:center;
     padding:40px;
@@ -198,106 +126,117 @@ footer{
     border-top:1px solid var(--border);
 }
 
+/* MOBILE */
 @media(max-width:768px){
-    .stats{grid-template-columns:1fr;}
+    header h1{
+        font-size:2rem;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div id="progress"></div>
-<button id="modeToggle">🌙</button>
-
 <nav>
-    <a href="#home">Home</a>
-    <a href="#stats">Stats</a>
-    <a href="#map">Map</a>
-    <a href="#faq">FAQ</a>
+    <a href="#history">History</a>
+    <a href="#humanitarian">Humanitarian Crisis</a>
+    <a href="#voices">Personal Accounts</a>
+    <a href="#donate">Donate</a>
+    <a href="#sources">News</a>
 </nav>
 
-<header id="home">
-    <h1>Understanding Palestine</h1>
-    <p>A simplified educational website for awareness, history, and humanitarian understanding.</p>
+<header>
+    <h1>Understanding the Israel–Palestine Conflict</h1>
+    <p>An educational overview of history, humanitarian impact, personal experiences, and verified global news sources.</p>
 </header>
 
-<!-- STATS -->
-<section id="stats" class="hidden">
-    <h2>Awareness Overview</h2>
-    <div class="card stats">
-        <div><h3>2M+</h3><p>Population in Gaza</p></div>
-        <div><h3>70+</h3><p>Years of Context</p></div>
-        <div><h3>Global</h3><p>Humanitarian Focus</p></div>
-    </div>
-</section>
-
-<!-- MAP -->
-<section id="map" class="hidden">
-    <h2>Region Overview</h2>
-    <div class="card map-box">
+<!-- HISTORY -->
+<section id="history">
+    <h2>History of the Conflict</h2>
+    <div class="card">
         <p>
-            Palestine is located in the Middle East, a historically significant region
-            shaped by cultural, religious, and political developments.
+        The Israel–Palestine conflict is a long-standing political and territorial dispute rooted in historical, religious, and national identity claims.
+        </p>
+
+        <p>
+        Major events include the end of Ottoman rule, the British Mandate period, the 1948 war (known as the <span class="highlight">Nakba</span> in Palestinian history), and multiple wars and uprisings since then.
+        </p>
+
+        <p>
+        Efforts such as the Oslo Accords attempted peace agreements, but long-term resolution has not been achieved.
         </p>
     </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="hidden">
-    <h2>Frequently Asked Questions</h2>
+<!-- HUMANITARIAN -->
+<section id="humanitarian">
+    <h2>Humanitarian Crisis</h2>
+    <div class="card">
+        <p>
+        Humanitarian organizations report ongoing challenges affecting civilians in Gaza and the West Bank.
+        </p>
 
-    <div class="faq">
-        What is Palestine?
-        <div class="answer">A historical region in the Middle East with deep cultural significance.</div>
+        <p>
+        These include displacement, infrastructure damage, shortages of food, clean water, electricity, and medical supplies.
+        </p>
+
+        <p>
+        Aid agencies emphasize that civilian protection and humanitarian access are critical priorities.
+        </p>
     </div>
+</section>
 
-    <div class="faq">
-        Why is it important to learn about it?
-        <div class="answer">It helps understand global history, humanitarian issues, and current events.</div>
+<!-- PERSONAL ACCOUNTS -->
+<section id="voices">
+    <h2>Personal Accounts</h2>
+    <div class="card">
+        <p>
+        Palestinian civilians have shared documented testimonies through journalists and humanitarian organizations.
+        </p>
+
+        <p>
+        These accounts often describe loss of homes, displacement, and difficulty accessing essential services such as healthcare and education.
+        </p>
+
+        <p>
+        Reports from organizations like Human Rights Watch and Amnesty International include verified interviews and field documentation.
+        </p>
     </div>
+</section>
 
-    <div class="faq">
-        How can people help?
-        <div class="answer">Through education, awareness, and verified humanitarian organizations.</div>
+<!-- DONATE -->
+<section id="donate">
+    <h2>Donate & Support</h2>
+    <div class="card">
+
+        <p><a href="https://www.unrwa.org/" target="_blank">UNRWA</a></p>
+        <p><a href="https://www.doctorswithoutborders.org/" target="_blank">Doctors Without Borders</a></p>
+        <p><a href="https://www.palestinercs.org/en" target="_blank">Palestinian Red Crescent</a></p>
+        <p><a href="https://www.islamic-relief.org/" target="_blank">Islamic Relief</a></p>
+
+        <p style="margin-top:10px; opacity:0.7;">
+        Always verify legitimacy before donating.
+        </p>
+
+    </div>
+</section>
+
+<!-- NEWS -->
+<section id="sources">
+    <h2>Reliable News Sources</h2>
+    <div class="card">
+
+        <p><a href="https://www.bbc.com/news" target="_blank">BBC News</a></p>
+        <p><a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a></p>
+        <p><a href="https://www.reuters.com/" target="_blank">Reuters</a></p>
+        <p><a href="https://www.nytimes.com/international/" target="_blank">New York Times</a></p>
+
     </div>
 </section>
 
 <footer>
-    Educational Awareness Project • GitHub Pages Ready
+    Educational Awareness Website • Built with Palestine Flag Color Theme
 </footer>
-
-<script>
-// scroll animation
-const els=document.querySelectorAll('.hidden');
-const obs=new IntersectionObserver(e=>{
-    e.forEach(x=>{
-        if(x.isIntersecting) x.target.classList.add('show');
-    });
-},{threshold:0.15});
-els.forEach(e=>obs.observe(e));
-
-// progress bar
-window.addEventListener("scroll",()=>{
-    const s=document.documentElement.scrollTop;
-    const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-    document.getElementById("progress").style.width=(s/h)*100+"%";
-});
-
-// dark mode
-const btn=document.getElementById("modeToggle");
-btn.onclick=()=>{
-    document.body.classList.toggle("light");
-    btn.textContent=document.body.classList.contains("light")?"☀️":"🌙";
-};
-
-// FAQ toggle
-document.querySelectorAll(".faq").forEach(f=>{
-    f.addEventListener("click",()=>{
-        const a=f.querySelector(".answer");
-        a.style.display=a.style.display==="block"?"none":"block";
-    });
-});
-</script>
 
 </body>
 </html>
