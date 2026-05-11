@@ -86,7 +86,56 @@ h2{
     margin-top:15px;
 }
 
-/* IMAGES GRID */
+/* TIMELINE */
+.timeline{
+    border-left:3px solid var(--green);
+    padding-left:20px;
+    margin-top:15px;
+}
+
+.timeline div{
+    margin-bottom:15px;
+    opacity:0.9;
+}
+
+/* TERRITORY VISUAL */
+.map-wrapper{
+    margin-top:20px;
+}
+
+.map-box{
+    height:260px;
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    background:
+        linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+        url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1");
+    background-size:cover;
+}
+
+.bar{
+    width:80%;
+    height:18px;
+    background:#333;
+    border-radius:10px;
+    margin-top:8px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:var(--green);
+}
+
+.fill2{width:70%; background:#ffb300;}
+.fill3{width:45%; background:var(--red);}
+
+/* IMAGES */
 .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -96,7 +145,6 @@ h2{
 img{
     width:100%;
     border-radius:10px;
-    opacity:0.9;
 }
 
 /* FOOTER */
@@ -128,18 +176,39 @@ footer{
 
 <header>
     <h1>Understanding the Israel–Palestine Conflict</h1>
-    <p>An educational research website covering history, humanitarian impact, statistics, and global perspectives.</p>
+    <p>An educational research website covering history, humanitarian impact, and global perspectives.</p>
 </header>
 
 <!-- HISTORY -->
 <section id="history">
 <h2>Historical Background</h2>
+
 <div class="card">
-<p>The Israel–Palestine conflict is a long-standing geopolitical issue rooted in historical, territorial, and national identity claims.</p>
+<p>The Israel–Palestine conflict developed over time through political, territorial, and historical developments.</p>
+</div>
 
-<p>Key historical moments include the end of Ottoman rule, British Mandate (1917–1948), the 1948 Arab–Israeli War (Nakba for Palestinians), and subsequent wars including 1967 and modern Gaza conflicts.</p>
+<div class="card timeline">
+<div><b>Late 1800s–Early 1900s:</b> Rise of competing national movements in the region.</div>
+<div><b>1917–1948:</b> British Mandate period; increasing tensions between communities.</div>
+<div><b>1948:</b> Arab–Israeli war and large-scale displacement of Palestinians (Nakba).</div>
+<div><b>1967:</b> Six-Day War; major territorial changes in the region.</div>
+<div><b>2000s–Present:</b> Repeated cycles of conflict, negotiations, and escalations.</div>
+</div>
 
-<p>Efforts such as the Oslo Accords attempted peace agreements, but a lasting resolution has not been achieved.</p>
+<div class="card map-wrapper">
+<h3 style="color:var(--green); margin-bottom:10px;">Territory Change Over Time (Simplified Visual)</h3>
+
+<p style="opacity:0.7;">Illustrative representation of changing territorial control over time.</p>
+
+<p style="margin-top:15px;">Early 1900s (historical Palestine)</p>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+
+<p style="margin-top:15px;">Mid 1900s (post-1948 changes)</p>
+<div class="bar"><div class="fill fill2"></div></div>
+
+<p style="margin-top:15px;">Modern day overview</p>
+<div class="bar"><div class="fill fill3"></div></div>
+
 </div>
 </section>
 
@@ -147,49 +216,36 @@ footer{
 <section id="crisis">
 <h2>Humanitarian Situation</h2>
 <div class="card">
-<p>Humanitarian organizations report severe impacts on civilians, including displacement, infrastructure destruction, and shortages of essential resources such as water, electricity, and medical care.</p>
-
-<p>According to UN reporting, large portions of Gaza’s population have been displaced multiple times during escalations of conflict.</p>
+<p>Humanitarian organizations report ongoing challenges including displacement, infrastructure damage, and limited access to essential resources.</p>
 </div>
 </section>
 
 <!-- STATISTICS -->
 <section id="stats">
-<h2>Reported Casualty Statistics (Gaza - Conflict Period)</h2>
+<h2>Reported Impact (Humanitarian Data)</h2>
 <div class="card">
-<p><b>Note:</b> These figures come from humanitarian reporting agencies and are continuously updated.</p>
+<p>Estimates vary by source and time period. Reports from UN agencies and NGOs document significant civilian casualties and displacement.</p>
 
-<p>Estimated total fatalities: ~60,000–70,000+</p>
-<p>Women & children: significant majority of civilian casualties reported in many datasets</p>
-
-<p style="margin-top:10px; opacity:0.7;">
-Sources: UN OCHA, Human Rights Watch, Reuters reporting
-</p>
+<p style="margin-top:10px;"><b>Key concern:</b> High proportion of civilian impact including women and children in conflict zones.</p>
 </div>
 </section>
 
-<!-- PERSONAL VOICES -->
+<!-- VOICES -->
 <section id="voices">
-<h2>Personal Accounts (Reported by Journalism & NGOs)</h2>
+<h2>Personal Accounts (Documented Reports)</h2>
 <div class="card">
-<p>Palestinian civilians interviewed by international journalists describe experiences of displacement, loss of homes, and disruption of daily life.</p>
-
-<p>Organizations such as Amnesty International and Human Rights Watch compile verified testimonies from affected families.</p>
-
-<p>These accounts are used to document humanitarian conditions rather than isolated narratives.</p>
+<p>Journalists and humanitarian organizations have recorded testimonies from civilians describing displacement, loss of housing, and disruption of daily life.</p>
 </div>
 </section>
 
 <!-- DONATE -->
 <section id="donate">
-<h2>Donate & Humanitarian Support</h2>
+<h2>Donate & Support</h2>
 <div class="card">
-
-<p><a href="https://www.unrwa.org/" target="_blank">UNRWA (UN Palestinian Refugee Agency)</a></p>
+<p><a href="https://www.unrwa.org/" target="_blank">UNRWA</a></p>
 <p><a href="https://www.doctorswithoutborders.org/" target="_blank">Doctors Without Borders</a></p>
 <p><a href="https://www.palestinercs.org/en" target="_blank">Palestinian Red Crescent</a></p>
 <p><a href="https://www.islamic-relief.org/" target="_blank">Islamic Relief</a></p>
-
 </div>
 </section>
 
@@ -197,50 +253,34 @@ Sources: UN OCHA, Human Rights Watch, Reuters reporting
 <section id="news">
 <h2>Reliable News Sources</h2>
 <div class="card">
-
 <p><a href="https://www.bbc.com/news" target="_blank">BBC News</a></p>
 <p><a href="https://www.reuters.com/" target="_blank">Reuters</a></p>
 <p><a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a></p>
 <p><a href="https://www.nytimes.com/" target="_blank">New York Times</a></p>
-
 </div>
 </section>
 
-<!-- CULTURE + ONE PIECE -->
+<!-- CULTURE -->
 <section id="culture">
-<h2>Student Inspiration</h2>
+<h2>Personal Inspiration</h2>
 <div class="card">
-<p>This project was inspired by themes of justice and freedom seen in popular culture.</p>
-
-<p>
-In the anime <i>One Piece</i>, the character Monkey D. Luffy fights against oppression and injustice, which influenced the idea of using knowledge and voice to support awareness of global issues.
-</p>
-
-<p style="opacity:0.7;">
-This connection is used as a personal motivation, not as a political comparison.
-</p>
+<p>This project was inspired by themes of justice in the anime <i>One Piece</i>, where characters fight against oppression and injustice.</p>
 </div>
 </section>
 
 <!-- IMAGES -->
 <section>
-<h2>Protests & Awareness Imagery</h2>
+<h2>Public Awareness & Global Protests</h2>
 <div class="card grid">
-
-<img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a" alt="">
-<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="">
-<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d" alt="">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
-
+<img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
+<img src="https://images.unsplash.com/photo-1602526210827-7c5f5a5f5a5f">
 </div>
-
-<p style="margin-top:10px; opacity:0.6;">
-Images represent general protest movements and civic demonstrations globally.
-</p>
 </section>
 
 <footer>
-Educational Research Website • Built for Academic Learning
+Educational Research Project • GitHub Pages Ready
 </footer>
 
 </body>
