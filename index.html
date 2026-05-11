@@ -35,24 +35,21 @@ nav{
     width:100%;
     display:flex;
     justify-content:center;
-    gap:18px;
-    padding:14px;
-    background:rgba(0,0,0,0.7);
+    gap:14px;
+    padding:12px;
+    background:rgba(0,0,0,0.75);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
+    z-index:1000;
 }
 
 nav a{
     color:var(--white);
     text-decoration:none;
-    font-size:0.9rem;
+    font-size:0.85rem;
     opacity:0.7;
 }
-
-nav a:hover{
-    color:var(--green);
-    opacity:1;
-}
+nav a:hover{color:var(--green); opacity:1;}
 
 /* HERO */
 header{
@@ -63,27 +60,24 @@ header{
     align-items:center;
     text-align:center;
     padding:20px;
-    background:
-        linear-gradient(120deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)),
-        linear-gradient(90deg, var(--black), #111);
 }
 
-header h1{
-    font-size:2.7rem;
-    color:var(--white);
-}
-
-header p{
-    max-width:750px;
-    opacity:0.75;
-    margin-top:10px;
-}
+header h1{font-size:2.6rem;}
+header p{opacity:0.7; max-width:750px; margin-top:10px;}
 
 /* SECTIONS */
 section{
     padding:90px 20px;
-    max-width:950px;
+    max-width:1000px;
     margin:auto;
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 h2{
@@ -102,20 +96,49 @@ h2{
     backdrop-filter:blur(10px);
 }
 
-/* LINKS */
-a{
-    color:var(--green);
-    text-decoration:none;
+/* BARS */
+.bar{
+    background:#222;
+    height:12px;
+    border-radius:6px;
+    overflow:hidden;
+    margin-top:8px;
 }
 
-a:hover{
-    color:var(--red);
+.fill{
+    height:100%;
+    width:0%;
+    background:var(--green);
+    transition:2s ease;
 }
 
-/* EMPHASIS */
-.highlight{
-    color:var(--red);
-    font-weight:bold;
+/* MAP */
+.map{
+    height:250px;
+    background:
+        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1");
+    background-size:cover;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+/* GLOSSARY */
+.term{
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.definition{
+    display:none;
+    opacity:0.8;
+    margin-top:8px;
 }
 
 /* FOOTER */
@@ -128,9 +151,7 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-    header h1{
-        font-size:2rem;
-    }
+    header h1{font-size:2rem;}
 }
 </style>
 </head>
@@ -139,104 +160,103 @@ footer{
 
 <nav>
     <a href="#history">History</a>
-    <a href="#humanitarian">Humanitarian Crisis</a>
-    <a href="#voices">Personal Accounts</a>
-    <a href="#donate">Donate</a>
-    <a href="#sources">News</a>
+    <a href="#data">Data</a>
+    <a href="#map">Map</a>
+    <a href="#terms">Glossary</a>
 </nav>
 
 <header>
     <h1>Understanding the Israel–Palestine Conflict</h1>
-    <p>An educational overview of history, humanitarian impact, personal experiences, and verified global news sources.</p>
+    <p>An interactive educational research project exploring history, data, and global perspectives.</p>
 </header>
 
 <!-- HISTORY -->
 <section id="history">
-    <h2>History of the Conflict</h2>
-    <div class="card">
-        <p>
-        The Israel–Palestine conflict is a long-standing political and territorial dispute rooted in historical, religious, and national identity claims.
-        </p>
-
-        <p>
-        Major events include the end of Ottoman rule, the British Mandate period, the 1948 war (known as the <span class="highlight">Nakba</span> in Palestinian history), and multiple wars and uprisings since then.
-        </p>
-
-        <p>
-        Efforts such as the Oslo Accords attempted peace agreements, but long-term resolution has not been achieved.
-        </p>
-    </div>
+<h2>Historical Overview</h2>
+<div class="card">
+<p>The conflict has developed over more than a century through political, territorial, and historical developments.</p>
+<p>Key moments include the British Mandate period, 1948 Arab–Israeli War, and ongoing regional tensions.</p>
+</div>
 </section>
 
-<!-- HUMANITARIAN -->
-<section id="humanitarian">
-    <h2>Humanitarian Crisis</h2>
-    <div class="card">
-        <p>
-        Humanitarian organizations report ongoing challenges affecting civilians in Gaza and the West Bank.
-        </p>
+<!-- DATA -->
+<section id="data">
+<h2>Humanitarian Overview (Visual Data)</h2>
 
-        <p>
-        These include displacement, infrastructure damage, shortages of food, clean water, electricity, and medical supplies.
-        </p>
+<div class="card">
+<p>Population Affected</p>
+<div class="bar"><div class="fill" data-width="85%"></div></div>
 
-        <p>
-        Aid agencies emphasize that civilian protection and humanitarian access are critical priorities.
-        </p>
-    </div>
+<p style="margin-top:15px;">Infrastructure Impact</p>
+<div class="bar"><div class="fill" data-width="70%"></div></div>
+
+<p style="margin-top:15px;">Humanitarian Aid Activity</p>
+<div class="bar"><div class="fill" data-width="60%"></div></div>
+</div>
 </section>
 
-<!-- PERSONAL ACCOUNTS -->
-<section id="voices">
-    <h2>Personal Accounts</h2>
-    <div class="card">
-        <p>
-        Palestinian civilians have shared documented testimonies through journalists and humanitarian organizations.
-        </p>
-
-        <p>
-        These accounts often describe loss of homes, displacement, and difficulty accessing essential services such as healthcare and education.
-        </p>
-
-        <p>
-        Reports from organizations like Human Rights Watch and Amnesty International include verified interviews and field documentation.
-        </p>
-    </div>
+<!-- MAP -->
+<section id="map">
+<h2>Regional Context</h2>
+<div class="card map">
+<p>Israel and Palestine are located in the Middle East, a historically significant and complex region.</p>
+</div>
 </section>
 
-<!-- DONATE -->
-<section id="donate">
-    <h2>Donate & Support</h2>
-    <div class="card">
+<!-- TERMS -->
+<section id="terms">
+<h2>Key Terms (Click to Expand)</h2>
 
-        <p><a href="https://www.unrwa.org/" target="_blank">UNRWA</a></p>
-        <p><a href="https://www.doctorswithoutborders.org/" target="_blank">Doctors Without Borders</a></p>
-        <p><a href="https://www.palestinercs.org/en" target="_blank">Palestinian Red Crescent</a></p>
-        <p><a href="https://www.islamic-relief.org/" target="_blank">Islamic Relief</a></p>
+<div class="card term">
+Nakba
+<div class="definition">Refers to the displacement of Palestinians during the 1948 Arab–Israeli war.</div>
+</div>
 
-        <p style="margin-top:10px; opacity:0.7;">
-        Always verify legitimacy before donating.
-        </p>
+<div class="card term">
+West Bank
+<div class="definition">A Palestinian territory located east of Israel.</div>
+</div>
 
-    </div>
-</section>
+<div class="card term">
+Gaza Strip
+<div class="definition">A densely populated coastal region facing humanitarian challenges.</div>
+</div>
 
-<!-- NEWS -->
-<section id="sources">
-    <h2>Reliable News Sources</h2>
-    <div class="card">
-
-        <p><a href="https://www.bbc.com/news" target="_blank">BBC News</a></p>
-        <p><a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a></p>
-        <p><a href="https://www.reuters.com/" target="_blank">Reuters</a></p>
-        <p><a href="https://www.nytimes.com/international/" target="_blank">New York Times</a></p>
-
-    </div>
 </section>
 
 <footer>
-    Educational Awareness Website • Built with Palestine Flag Color Theme
+Educational Interactive Project • GitHub Pages Ready
 </footer>
+
+<script>
+// scroll reveal
+const sections=document.querySelectorAll("section");
+
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting){
+            e.target.classList.add("show");
+
+            // animate bars
+            document.querySelectorAll(".fill").forEach(bar=>{
+                bar.style.width=bar.getAttribute("data-width");
+            });
+        }
+    });
+},{threshold:0.2});
+
+sections.forEach(s=>observer.observe(s));
+
+// glossary toggle
+document.querySelectorAll(".term").forEach(t=>{
+    t.addEventListener("click",()=>{
+        const d=t.querySelector(".definition");
+        d.style.display=d.style.display==="block"?"none":"block";
+    });
+});
+</script>
 
 </body>
 </html>
+
+
