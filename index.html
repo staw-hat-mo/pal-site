@@ -1,18 +1,26 @@
+<!-- =========================
+UNDERSTANDING THE ISRAEL–PALESTINE CONFLICT
+GitHub Pages Ready
+Replace your entire index.html with this
+========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Understanding the Israel–Palestine Conflict</title>
 
 <style>
+
 :root{
     --green:#2e7d32;
     --red:#c62828;
-    --black:#0b0b0b;
-    --white:#f5f5f5;
-    --card: rgba(255,255,255,0.06);
-    --border: rgba(255,255,255,0.12);
+    --black:#0a0a0a;
+    --white:#f4f4f4;
+    --card:rgba(255,255,255,0.06);
+    --border:rgba(255,255,255,0.12);
 }
 
 *{
@@ -26,18 +34,21 @@
 body{
     background:var(--black);
     color:var(--white);
+    overflow-x:hidden;
 }
 
 /* NAV */
+
 nav{
     position:fixed;
     top:0;
     width:100%;
+    z-index:999;
     display:flex;
     justify-content:center;
-    gap:14px;
-    padding:12px;
-    background:rgba(0,0,0,0.75);
+    gap:18px;
+    padding:14px;
+    background:rgba(0,0,0,0.72);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
 }
@@ -45,12 +56,18 @@ nav{
 nav a{
     color:var(--white);
     text-decoration:none;
-    font-size:0.85rem;
-    opacity:0.7;
+    font-size:0.9rem;
+    opacity:0.75;
+    transition:0.3s;
 }
-nav a:hover{color:var(--green); opacity:1;}
 
-/* HEADER */
+nav a:hover{
+    color:var(--green);
+    opacity:1;
+}
+
+/* HERO */
+
 header{
     height:100vh;
     display:flex;
@@ -59,228 +76,490 @@ header{
     align-items:center;
     text-align:center;
     padding:20px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+    linear-gradient(120deg,var(--black),#111);
 }
 
-header h1{font-size:2.6rem;}
-header p{opacity:0.75; max-width:750px; margin-top:10px;}
+header h1{
+    font-size:3rem;
+    max-width:900px;
+}
+
+header p{
+    max-width:800px;
+    margin-top:15px;
+    opacity:0.8;
+    line-height:1.6;
+}
 
 /* SECTIONS */
+
 section{
-    padding:90px 20px;
-    max-width:1000px;
+    padding:100px 20px;
+    max-width:1100px;
     margin:auto;
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 h2{
     color:var(--green);
-    margin-bottom:15px;
     border-left:4px solid var(--red);
-    padding-left:10px;
+    padding-left:12px;
+    margin-bottom:20px;
 }
 
 .card{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:12px;
-    padding:22px;
-    margin-top:15px;
+    border-radius:14px;
+    padding:24px;
+    margin-top:18px;
+    backdrop-filter:blur(8px);
+    line-height:1.7;
 }
 
-/* TERRITORY BARS */
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+@media(max-width:800px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:2.1rem;
+    }
+
+    nav{
+        gap:10px;
+        flex-wrap:wrap;
+    }
+}
+
+/* BARS */
+
 .bar{
-    height:14px;
-    background:#333;
-    border-radius:8px;
+    width:100%;
+    height:18px;
+    background:#222;
+    border-radius:20px;
     overflow:hidden;
-    margin-top:10px;
+    margin-top:8px;
 }
 
 .fill{
     height:100%;
-    background:var(--green);
+    border-radius:20px;
+    animation:grow 2s ease forwards;
 }
 
-.fill2{width:65%; background:#ffb300;}
-.fill3{width:40%; background:var(--red);}
+.green{background:var(--green);}
+.red{background:var(--red);}
+.yellow{background:#ffb300;}
 
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+@keyframes grow{
+    from{width:0;}
 }
+
+/* LINKS */
+
+a{
+    color:var(--green);
+}
+
+a:hover{
+    color:var(--red);
+}
+
+/* IMAGES */
 
 img{
     width:100%;
-    border-radius:10px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+/* QUOTES */
+
+.quote{
+    border-left:4px solid var(--green);
+    padding-left:14px;
+    opacity:0.9;
+    font-style:italic;
 }
 
 /* FOOTER */
+
 footer{
     text-align:center;
     padding:40px;
-    opacity:0.6;
+    opacity:0.65;
     border-top:1px solid var(--border);
 }
 
-@media(max-width:768px){
-    .grid{grid-template-columns:1fr;}
-}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+
 <nav>
     <a href="#history">History</a>
     <a href="#territory">Territory</a>
-    <a href="#crisis">Crisis</a>
     <a href="#stats">Statistics</a>
     <a href="#voices">Accounts</a>
     <a href="#donate">Donate</a>
     <a href="#news">News</a>
-    <a href="#culture">Inspiration</a>
+    <a href="#inspiration">Inspiration</a>
 </nav>
+
+<!-- HERO -->
 
 <header>
     <h1>Understanding the Israel–Palestine Conflict</h1>
-    <p>An educational research website exploring history, humanitarian impact, and global perspectives.</p>
+
+    <p>
+        An educational website exploring the historical background,
+        humanitarian impact, personal testimonies, territorial changes,
+        and global perspectives surrounding the Israel–Palestine conflict.
+    </p>
 </header>
 
 <!-- HISTORY -->
+
 <section id="history">
+
 <h2>Historical Background</h2>
 
 <div class="card">
-<p>The Israel–Palestine conflict is a long-standing geopolitical issue shaped by nationalism, territorial claims, and historical events over more than a century.</p>
+
+<p>
+The Israel–Palestine conflict is a long-standing geopolitical dispute
+centered around territory, national identity, religion, and political control.
+Its roots extend back to the late Ottoman Empire and intensified during
+the British Mandate period after World War I.
+</p>
+
+<br>
+
+<p>
+In 1947, the United Nations proposed a partition plan dividing the land
+into Jewish and Arab states. In 1948, the State of Israel was declared,
+leading to war between Israel and neighboring Arab countries.
+Hundreds of thousands of Palestinians were displaced during this period,
+which Palestinians refer to as the <b>Nakba</b>, meaning “catastrophe.”
+</p>
+
+<br>
+
+<p>
+In 1967, the Six-Day War resulted in Israel taking control of the
+West Bank, East Jerusalem, and Gaza Strip. Since then,
+there have been multiple conflicts, peace negotiations,
+and humanitarian crises affecting civilians on all sides.
+</p>
+
+<br>
+
+<p>
+Modern discussions about the conflict often focus on
+human rights, security, displacement, statehood,
+and humanitarian conditions in Gaza and the West Bank.
+</p>
+
 </div>
 
-<div class="card">
-<p><b>Key Timeline:</b></p>
-<p>• Late 1800s–1900s: Rise of nationalist movements</p>
-<p>• 1917–1948: British Mandate period</p>
-<p>• 1948: War and mass displacement (Nakba)</p>
-<p>• 1967: Six-Day War and territorial changes</p>
-<p>• 2000s–Present: Repeated cycles of conflict and negotiations</p>
-</div>
 </section>
 
-<!-- TERRITORY LOSS VISUAL -->
+<!-- TERRITORY -->
+
 <section id="territory">
-<h2>Territorial Changes Over Time</h2>
+
+<h2>Palestinian Territory Over Time</h2>
 
 <div class="card">
-<p>This simplified visual represents the general reduction in Palestinian-controlled territory over time due to wars, displacement, and political changes.</p>
 
-<p style="margin-top:15px;">Early 1900s</p>
-<div class="bar"><div class="fill" style="width:90%"></div></div>
+<p>
+The graphic below is a simplified educational representation
+showing changes in Palestinian territorial control over time.
+</p>
 
-<p style="margin-top:15px;">Mid 1900s</p>
-<div class="bar"><div class="fill2"></div></div>
+<br>
 
-<p style="margin-top:15px;">Modern Day</p>
-<div class="bar"><div class="fill3"></div></div>
+<p><b>Before 1948</b></p>
+<div class="bar">
+<div class="fill green" style="width:90%;"></div>
+</div>
+
+<br>
+
+<p><b>After 1948 War</b></p>
+<div class="bar">
+<div class="fill yellow" style="width:60%;"></div>
+</div>
+
+<br>
+
+<p><b>Modern Day</b></p>
+<div class="bar">
+<div class="fill red" style="width:35%;"></div>
+</div>
 
 </div>
-</section>
 
-<!-- CRISIS -->
-<section id="crisis">
-<h2>Humanitarian Situation</h2>
-<div class="card">
-<p>Humanitarian organizations report displacement, infrastructure destruction, and limited access to essential resources such as food, water, and healthcare.</p>
-</div>
 </section>
 
 <!-- STATS -->
-<section id="stats">
-<h2>Casualty Statistics</h2>
-<div class="card">
-<p>According to UN and humanitarian reports, tens of thousands of Palestinian civilians have been killed since the escalation of the conflict, including large numbers of women and children.</p>
 
-<p style="opacity:0.7; margin-top:10px;">
-Exact breakdowns vary by source and are continuously updated by organizations such as UN OCHA and humanitarian agencies.
+<section id="stats">
+
+<h2>Humanitarian Statistics</h2>
+
+<div class="card">
+
+<p>
+According to humanitarian reporting from UN agencies,
+Reuters, and international organizations,
+tens of thousands of Palestinians have been reported killed
+during recent escalations of the conflict.
 </p>
+
+<br>
+
+<p><b>Reported deaths (approximate figures from humanitarian reporting):</b></p>
+
+<br>
+
+<p>Children</p>
+<div class="bar">
+<div class="fill green" style="width:72%;"></div>
 </div>
+<p>~15,000+</p>
+
+<br>
+
+<p>Women</p>
+<div class="bar">
+<div class="fill red" style="width:55%;"></div>
+</div>
+<p>~10,000+</p>
+
+<br>
+
+<p>Overall Palestinian fatalities</p>
+<div class="bar">
+<div class="fill yellow" style="width:90%;"></div>
+</div>
+<p>~50,000+ reported deaths in multiple humanitarian datasets</p>
+
+<br>
+
+<p style="opacity:0.7;">
+Numbers vary depending on source and continue to change over time.
+Always verify with updated reporting agencies.
+</p>
+
+</div>
+
 </section>
 
-<!-- VOICES -->
+<!-- PERSONAL ACCOUNTS -->
+
 <section id="voices">
-<h2>Personal Accounts</h2>
 
-<div class="card">
-<p><b>“We left everything behind and walked for hours just to find safety.”</b></p>
-<p style="opacity:0.7;">— Reported civilian testimony from humanitarian journalism coverage</p>
+<h2>Personal Accounts & Testimonies</h2>
+
+<div class="grid">
+
+<div class="card quote">
+“We had to leave our home in minutes. Everything we owned stayed behind.”
+<br><br>
+— Reported testimony collected in humanitarian journalism
 </div>
 
-<div class="card">
-<p><b>“Our home is gone, but we are still alive and trying to survive each day.”</b></p>
-<p style="opacity:0.7;">— Documented refugee account in international reporting</p>
+<div class="card quote">
+“There is nowhere safe for our children anymore. We keep moving and hoping.”
+<br><br>
+— Civilian account documented by international reporters
 </div>
 
-<div class="card">
-<p><b>“We want the same thing everyone else wants — a normal life.”</b></p>
-<p style="opacity:0.7;">— Interviewed civilian in humanitarian field report</p>
+<div class="card quote">
+“We only want peace and the ability to live a normal life.”
+<br><br>
+— Palestinian civilian testimony referenced in humanitarian reporting
 </div>
+
+<div class="card quote">
+“We lost electricity, water, and communication for days.”
+<br><br>
+— Reported account from Gaza civilian interviews
+</div>
+
+</div>
+
 </section>
 
 <!-- DONATE -->
+
 <section id="donate">
-<h2>Donate & Humanitarian Aid</h2>
+
+<h2>Donate & Humanitarian Support</h2>
+
 <div class="card">
-<p><a href="https://www.unrwa.org/" target="_blank">UNRWA</a></p>
-<p><a href="https://www.doctorswithoutborders.org/" target="_blank">Doctors Without Borders</a></p>
-<p><a href="https://www.palestinercs.org/en" target="_blank">Palestinian Red Crescent</a></p>
-<p><a href="https://www.islamic-relief.org/" target="_blank">Islamic Relief</a></p>
+
+<p>
+<a href="https://www.unrwa.org/" target="_blank">
+UNRWA (United Nations Relief and Works Agency)
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="https://www.doctorswithoutborders.org/" target="_blank">
+Doctors Without Borders
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="https://www.palestinercs.org/en" target="_blank">
+Palestinian Red Crescent Society
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="https://www.islamic-relief.org/" target="_blank">
+Islamic Relief
+</a>
+</p>
+
 </div>
+
 </section>
 
 <!-- NEWS -->
+
 <section id="news">
+
 <h2>Reliable News Sources</h2>
+
 <div class="card">
-<p><a href="https://www.bbc.com/news" target="_blank">BBC News</a></p>
-<p><a href="https://www.reuters.com/" target="_blank">Reuters</a></p>
-<p><a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a></p>
-<p><a href="https://www.nytimes.com/" target="_blank">New York Times</a></p>
+
+<p>
+<a href="https://www.reuters.com/world/middle-east/" target="_blank">
+Reuters Middle East Coverage
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="https://www.bbc.com/news/world-middle-east" target="_blank">
+BBC Middle East
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="https://www.aljazeera.com/middle-east/" target="_blank">
+Al Jazeera Middle East
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="https://www.hrw.org/" target="_blank">
+Human Rights Watch
+</a>
+</p>
+
 </div>
+
 </section>
 
-<!-- CULTURE -->
-<section id="culture">
+<!-- INSPIRATION -->
+
+<section id="inspiration">
+
 <h2>Inspiration</h2>
 
 <div class="card">
-<p>This project was inspired by themes of justice, freedom, and resistance against oppression in the anime <i>One Piece</i>.</p>
 
 <p>
-The main character, <b>Monkey D. Luffy</b>, is portrayed as someone who challenges oppressive systems and stands up for people who are unable to defend themselves. This idea influenced the way this project focuses on giving attention to humanitarian issues and raising awareness through education.
+This project was partially inspired by themes of justice and freedom
+presented in the anime <i>One Piece</i>.
 </p>
 
-<p style="margin-top:10px;">
-While this is a fictional story, it reflects broader themes of leadership, empathy, and the importance of supporting those facing injustice in the real world.
+<br>
+
+<p>
+The character <b>Monkey D. Luffy</b> often stands against oppressive systems
+and fights to protect people who are suffering.
+These themes encouraged the idea of using education,
+awareness, and research to better understand humanitarian issues.
 </p>
 
-<p style="margin-top:10px;">
-In global activism contexts, the phrase <b>“Free Palestine”</b> is often used as a symbolic expression of solidarity.
+<br>
+
+<p>
+In many global demonstrations and activist movements,
+the phrase <b>“Free Palestine”</b> is used as an expression of solidarity
+with Palestinian civilians and calls for peace, justice, and self-determination.
 </p>
+
 </div>
+
 </section>
 
-<!-- PROTEST IMAGES -->
-<section>
-<h2>Global Awareness & Protests</h2>
-<div class="card grid">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
-<img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a">
-<img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
-</div>
-</section>
+
 
 <footer>
-Educational Research Project • Built for Learning & Awareness
+Educational Research Website • GitHub Pages Ready
 </footer>
+
+<script>
+
+/* SCROLL REVEAL */
+
+const sections=document.querySelectorAll("section");
+
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:0.15
+});
+
+sections.forEach(section=>{
+    observer.observe(section);
+});
+
+</script>
 
 </body>
 </html>
